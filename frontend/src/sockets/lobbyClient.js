@@ -4,9 +4,9 @@ import { BACKEND_URL } from "../config";
 export function initLobbySocket(opts = {}) {
   const { onUpdate, onError, enrollmentNumber, onOnlineUsersUpdate } = opts;
   const socket = io(BACKEND_URL, {
-    transports: ["websocket"],
-    secure: true,
+    withCredentials: true,
   });
+
 
   socket.on("onlineParticipantsUpdate", (users) => {
     onOnlineUsersUpdate?.(users);
