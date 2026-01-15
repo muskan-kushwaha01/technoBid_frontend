@@ -5,6 +5,7 @@ export function initLobbySocket(opts = {}) {
   const { onUpdate, onError, enrollmentNumber, onOnlineUsersUpdate } = opts;
   const socket = io(BACKEND_URL, {
     transports: ["websocket"],
+    secure: true,
   });
 
   socket.on("onlineParticipantsUpdate", (users) => {
